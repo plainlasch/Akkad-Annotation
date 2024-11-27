@@ -1,0 +1,174 @@
+Sign Name,Unicode code point
+DIŠ (1), 𒁹
+NIGIDA (DIŠ),
+LAL (LÁ), 𒇲
+LÁL (LAL×LAL), 𒇳
+LÁL,
+ME, 𒈨
+MEŠ, 𒎌
+LAGAB, 𒆸
+ENGUR (LAGAB×ḪAL), 𒇉
+ZIKUM,
+LAGAB×AN, 𒆾
+LAGAB×KÍD, 𒇣
+GIGIR (LAGAB×BAD), 𒇀
+ÉSIR (LAGAB×NUMUN), 𒇒
+LAGAB× NUMUN.ḪI.A, 𒇓
+LAGAB×GI, 𒎈
+LAGAB×EN, 𒇃
+LAGAB×DAR, 𒇂
+U8 (LAGAB× GU4overGU4, 𒇇
+ZAR (LAGAB×SUM), 𒇡
+UDUB (LAGAB×NE), 𒇛
+LAGAB×BI, 𒇁
+LAGAB×UŠ, 𒇪
+LAGAB×ŠÍTA, 𒇞
+LAGAB× ŠÍTA.ERIM, 𒇝
+LAGAB×GU4, 𒇆
+LAGAB×AL, 𒆽
+LAGAB× Ú.AŠ, 𒇨
+LAGAB×GA, 𒇄
+ŠÁRA (LAGAB×SIG7), 𒇋
+LAGAB×LUL, 𒇗
+LAGAB×GE23, 𒆿
+LAGAB× ŠE.SUM, 𒇜
+LAGAB×MUŠ, 𒇚
+LAGAB× KAR.SU.NA, 𒇤
+LAGAB×LIŠ, 𒇕
+LAGAB×UD, 𒇩
+LAGAB×AḪ, 𒇊
+LAGAB×IM, 𒇌
+TÚL (LAGAB×U), 𒇥
+LAGAB× U.A, 𒇦
+BUL (LAGAB×EŠ), 𒇧
+LAGAB×KI, 𒇏
+GARIM (LAGAB×KUG), 𒇑
+LAGAB×ME, 𒇘
+LAGAB× ME.EN, 𒇙
+LAGAB×LU, 𒇖
+LAGAB×KIN, 𒇐
+SUG (LAGAB×A), 𒆹
+LAGAB× A.TAR,
+LAGAB× A.DA.ḪA, 𒆺
+LAGAB× A.LAL, 𒆼
+LAGAB× A.NÍG/GAR, 𒆻
+LAGAB×ḪA, 𒇈
+LAGAB×NÍG, 𒇅
+LAGAB×ŠÚ, 𒇟
+LAGAB× ŠÚ.ŠÚ, 𒇠
+"NIGIN (LAGAB+LAGAB, LAGAB.LAGAB)", 𒆸 &  𒆸
+NIGIN (LAGAB×LAGAB), 𒇔
+4×LAGAB forming a cross, 𒇫
+"NENNI (BUL+BUL, BUL.BUL)",BUL.BUL:  𒇧 &  𒇧
+IB, 𒅁
+"KU (DÚR, TUKUL, TUŠ)", 𒆪
+"KU (DÚR, TUKUL, TUŠ)", 𒂉
+TÚG (NÁM), 𒌆
+TÚG (NÁM), 𒉇
+"ŠÈ (ÉŠ, GI7, ZÌ)", 𒂠
+"ŠÈ (ÉŠ, GI7, ZÌ)", 𒍥
+"""KU"" = DIŠ+ŠU", 𒍵
+LU (UDU), 𒇻
+DIB (DAB), 𒁳
+ÀD (LU×BAD), 𒇼
+KIN, 𒆥
+SÍG / SÍK, 𒋠
+DARA4 (SÍG+AŠ), 𒁱
+EREN (SÍG.NUN), 𒂞
+GUR7 (SÍG.AḪ.ME.U), 𒄦
+MUNŠUB (MUNSUB; SÍG.SUḪUR), 𒈰
+ŠÉŠ (SÍG.LAM), 𒋁
+SÍG.LAM.AḪ.ME.U,
+MÚNŠUB (SÍG.LAM.SUḪUR), 𒋁 &  𒋦
+DIŠ.U, 𒁹 &  𒌋
+MIN (2), 𒈫
+ŠUŠANA (1/3), 𒑚
+TUK (TUG), 𒌇
+UR, 𒌨
+URBINGU (URoverURcrossed), 𒌩
+UR-šeššig, 𒌪
+"""UR×A""",
+"""UR×MIN""",
+GIDIM, 𒄇
+, 𒈫 &  𒌍
+ŠANABI (2/3), 𒑛
+UDUG, 𒌜
+EŠ5(3), 𒐈
+UR4, 𒌴
+GÍN (TÙN), 𒂅
+"IŠŠEBU (3,20)", 𒐈 &  𒎙
+KINGUSILA, 𒑜
+A, 𒀀
+A.TU.GAB.LIŠ, 𒀷
+AGAM (A×BAD), 𒀂
+A×SAG, 𒀈
+A×MUŠ, 𒀇
+A×DU6, 𒀆
+A×IGI, 𒀅
+EDURU (A×A), 𒀁
+ZÀḪ (A×ḪA), 𒀄
+DIŠoverDIŠ,
+NIGIDAMIN (DIŠoverDIŠ), 𒑖
+LÁL variant, 𒑖 &  𒉽
+NIGIDAEŠ (DIŠoverDIŠ.DIŠ), 𒑗
+ZA, 𒍝
+"LIMMU5 (""ZA"")", 𒍝
+"LIMMU5 (""ZA"")", 𒐉
+"NIGIDALIMMU (""ZA"")", 𒍝
+"NIGIDALIMMU (""ZA"")", 𒐉
+AD4 (ZA-tenû), 𒍞
+GIŠTA'E (4×ZA ×KUR), 𒍟
+ḪA (KU6), 𒄩
+ZUBUD (ḪA -tenû), 𒄪
+GUG (ZA.GUL), 𒍝 &  𒄢
+"NÍG (GAR, NINDA)", 𒃻
+"LIMMU (""NÍG"", 4)", 𒐼
+IÁ (5), 𒐊
+ÀŠ, 𒐋
+IMIN (7), 𒅓
+IMIN (7), 𒐌
+USSU (8), 𒐍
+DIŠoverDIŠoverDIŠ, 𒑉
+IMIN (7), 𒑂
+USSU (8), 𒑄
+ILIMMU (9), 𒑆
+ŠÚ, 𒋙
+, 𒑟
+ÉN (ŠÚ.AN), 𒋙 &  𒀭
+KÈŠ (ÉN. ŠÁR×GAD), 𒋙 &  𒀭 &  𒄲
+KUNGA (ŠÚ.MUL), 𒋙 &  𒀯
+ŠEG8 (ŠÚ.NAGA), 𒋙 &  𒉀
+LIL5 (ŠÚ.NE), 𒋙 &  𒉈
+GÍBIL (ŠÚ.ÁŠ), 𒋙 &  𒀾
+ŠUDUN (ŠÚ.DUN4), 𒋙 &  𒂈
+ḪÚL, 𒄾
+ŠEG9 (ŠÚ.ŠE.KU.GAG), 𒊾
+LÌL (ŠÚ.EŠ), 𒋙 &  𒌍
+ŠÚ.UR-šeššig, 𒋙 &  𒌪
+SIG, 𒋝
+PÉŠ,[ 𒉾]
+MUNUS (SAL), 𒊩
+ZUM, 𒍮
+ZÚM (ZUM×LAGAB), 𒊪
+"NIN9, old MUNUS.KU", 𒊩 &  𒆪
+"NIN, old MUNUS.TÚG", 𒊩 &  𒌆
+MUNUS+MA,
+DAM, 𒁮
+GÉME (MUNUS.KUR), 𒊩 &  𒆳
+GU, 𒄖
+SÙḪ (GUoverGUcrossed), 𒄗
+NAGAR, 𒉄
+TUGUL (NAGAR.AD4), 𒉄 &  𒍞
+MUNUS.LAGAR, 𒊩 &  𒇬
+KÚŠU, 𒆵
+ÉGI (MUNUS.ŠÈ), 𒊩 &  𒂠
+NIG (MUNUS.UR), 𒊩 &  𒌨
+EL, 𒂖
+LUM, 𒈝
+"MÚRGU (""LUM"")", 𒈱
+LUMoverLUM, 𒈞
+LUMoverLUM.ŠÚ, 𒈞 &  𒋙
+LÙGUD (LUMoverLUM.NÍGoverNÍG), 𒈟
+SIG4, 𒋞
+"MURGU (""SIG4"")", 𒋞
+SIG4overSIG4.ŠÚ, 𒋟

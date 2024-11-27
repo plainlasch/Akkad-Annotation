@@ -1,0 +1,5 @@
+pandas 
+lxml
+tk
+pillow
+reportlab
