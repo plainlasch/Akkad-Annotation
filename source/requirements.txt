@@ -3,3 +3,5 @@ lxml
 tk
 pillow
 reportlab
+requests
+beautifulsoup4
