@@ -9,9 +9,9 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 
 class ImageAnnotator:
-    def __init__(self, root, csv_file):
+    def __init__(self, root, json_file):
         self.root = root
-        self.root.title("Image Annotator")
+        self.root.title("Akkad Annotator")
 
         # Main layout: Canvas on the left, Text widget on the right
         self.canvas = tk.Canvas(root, width=800, height=600, bg="gray")
@@ -57,10 +57,11 @@ class ImageAnnotator:
         self.start_x = None
         self.start_y = None
         self.current_label = ""
-        self.csv_file = csv_file
+        self.json_file = json_file
 
         # Load labels from the CSV file
-        self.labels = self.load_labels_from_csv()
+        #self.labels = self.load_labels_from_csv()
+        self.labels = self.load_labels_from_json()
 
         # Bind Events
         self.canvas.bind("<ButtonPress-1>", self.start_draw_or_select)
@@ -88,6 +89,15 @@ class ImageAnnotator:
                 label_options = row[0].split(',')
                 labels.extend(label_options)
         return sorted(labels)  # Sort alphabetically for easier navigation
+
+    def load_labels_from_json(self):
+        """Load labels from the lookup-dict.json"""
+        labels = []
+        with open(self.json_file, encoding="utf-8") as f:
+            file = json.load(f)
+            for key, value in file.items():
+                labels.append(key)
+        return sorted(labels)
 
     def start_draw_or_select(self, event):
         """Handle clicking to either select a rectangle or start a new one."""
