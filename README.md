@@ -30,6 +30,9 @@ To extend the functionality of the program there already planned additions. A fe
 - size-adjustable rectangles
 - searchable sign dictionary by types of lines if sign in picture is not known.
 - If cuneiform-sign is not know, search for suggestions by specifying the number of radicals.
+- Custom keyboard for special signs
+- Copy annotations for the same signs
+- 
 
 
 ## Project status
