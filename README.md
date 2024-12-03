@@ -29,6 +29,7 @@ To extend the functionality of the program there already planned additions. A fe
 - Support for Neo-Babylonian, Old-Babylonian and Hittite signs
 - size-adjustable rectangles
 - searchable sign dictionary by types of lines if sign in picture is not known.
+- If cuneiform-sign is not know, search for suggestions by specifying the number of radicals.
 
 
 ## Project status
