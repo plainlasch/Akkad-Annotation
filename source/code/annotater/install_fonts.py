@@ -76,7 +76,7 @@ if __name__ == "__main__":
     root = tk.Tk()
     root.withdraw()  # Hide the root window
 
-    font_folder = "source/fonts"
+    font_folder = "fonts"
 
     if font_folder:
         install_fonts_from_folder(font_folder)

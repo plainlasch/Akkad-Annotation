@@ -1,0 +1,1 @@
+"""Let user define the number of radicals of a cunei forms sign, so the program can select signs that consist of the number of radicals provided"""

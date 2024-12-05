@@ -2,4 +2,6 @@ import tkinter.font as tkFont
 import tkinter as tk
 
 root = tk.Tk()
-print(tkFont.families())
+families = list(tkFont.families())
+families.sort()
+print(families)

@@ -1,3 +1,4 @@
+"""Convert akkadian annotations into cunei form signs, dependent on historical period"""
 import tkinter as tk
 from tkinter import messagebox
 from tkinter.font import Font
@@ -12,7 +13,7 @@ class CuneiformConverter:
 
         # Predefined font families
         self.available_fonts = ['Bisitun', 'Assurbanipal', 'Esagil', 'Persepolis', 'Santakku', 'SantakkuM', 'UllikummiA', 'UllikummiB', 'UllikummiC']
-        self.chronologies = ["Neo-Assyrian", "Neo-Babylonian", "Old-Babylonian", "Hittite"]
+        self.chronologies = ["Neo-Assyrian", "Neo-Babylonian", "Old-Babylonian","Old-Babylonian Monumental", "Hittite"]
         # Default selected font
         self.selected_font = self.chronologies[0]  # Default to the first font
         self.selected_font_size = font_size
@@ -84,9 +85,7 @@ class CuneiformConverter:
         output_window.title("Cuneiform Translation")
         output_window.geometry("500x400")  # Set a reasonable default size
 
-        # Create a Text widget to display the result
-        output_text = tk.Text(output_window, wrap=tk.WORD, width=50, height=20)
-        output_text.pack(fill=tk.BOTH, expand=True)
+        
 
         # Try to apply the selected font and size
         try:
@@ -96,12 +95,15 @@ class CuneiformConverter:
                 self.selected_font = "Esagil"
             elif self.selected_font == "Old-Babylonian":
                 self.selected_font = "Santakku"
+            elif self.selected_font == "Old-Babylonian Monumental":
+                self.selected_font = "SantakkuM"
             elif self.selected_font == "Hittite":
                 self.selected_font = "UllikummiA"
 
             font_tuple = (self.selected_font, self.selected_font_size)
-            output_text.configure(font=font_tuple)
-            print(f"Font applied: {font_tuple}")  # Debug print the applied font
+            # Create a Text widget to display the result
+            output_text = tk.Text(output_window, wrap=tk.WORD, width=50, height=20, font=font_tuple)
+            output_text.pack(fill=tk.BOTH, expand=True)
 
             # Check the font applied on the widget
             applied_font = output_text.cget("font")

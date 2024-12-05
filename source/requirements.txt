@@ -5,3 +5,5 @@ pillow
 reportlab
 requests
 beautifulsoup4
+pyglet
+tkextrafont
