@@ -5,8 +5,7 @@ import csv
 import json
 import io
 import base64
-from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
+from Sign_Detect import SignDetect
 
 class ImageAnnotator:
     def __init__(self, root, json_file):
@@ -34,11 +33,15 @@ class ImageAnnotator:
         self.btn_load_annotations = tk.Button(root, text="Load Annotations", command=self.load_annotations)
         self.btn_load_annotations.pack(side=tk.TOP)
 
-        # Other initializations...
+        # Add the Sign Detect button
+        self.btn_sign_detect = tk.Button(root, text="Sign Detect", command=self.open_sign_detect)
+        self.btn_sign_detect.pack(side=tk.TOP, pady=10)
+        
+        #Annotations
         self.annotations = []  # This will contain annotation data including cuneiform text
         self.translated_cuneiform_text = ""  # Store cuneiform translation
 
-        #Edit Rectangles
+        # Edit Rectangles
         self.selected_rectangle = None
         self.rect_start_x = None
         self.rect_start_y = None
@@ -59,14 +62,19 @@ class ImageAnnotator:
         self.current_label = ""
         self.json_file = json_file
 
+        # Undo stack for annotation actions
+        self.undo_stack = []
+
         # Load labels from the CSV file
-        #self.labels = self.load_labels_from_csv()
         self.labels = self.load_labels_from_json()
 
         # Bind Events
         self.canvas.bind("<ButtonPress-1>", self.start_draw_or_select)
         self.canvas.bind("<B1-Motion>", self.drawing)
         self.canvas.bind("<ButtonRelease-1>", self.stop_draw)
+
+        # Bind Ctrl+Z for undo functionality
+        self.root.bind("<Control-z>", self.undo)
 
     def load_image(self):
         filepath = filedialog.askopenfilename(filetypes=[("Image files", "*.jpg;*.png")])
@@ -79,16 +87,6 @@ class ImageAnnotator:
             self.canvas.delete("all")
             self.canvas.create_image(0, 0, anchor=tk.NW, image=self.image_tk)
             self.update_annotation_text()
-
-    def load_labels_from_csv(self):
-        """Load labels from the given CSV file."""
-        labels = []
-        with open(self.csv_file, newline='', encoding='utf-8') as f:
-            reader = csv.reader(f)
-            for row in reader:
-                label_options = row[0].split(',')
-                labels.extend(label_options)
-        return sorted(labels)  # Sort alphabetically for easier navigation
 
     def load_labels_from_json(self):
         """Load labels from the lookup-dict.json"""
@@ -178,6 +176,7 @@ class ImageAnnotator:
                 self.rectangles.append((rect_id, annotation))
                 self.annotations.append(annotation)
                 self.update_annotation_text()
+                self.undo_stack.append(('add', rect_id, annotation))  # Push to undo stack
                 label_frame.destroy()  # Hide the label options after selection
 
         # Custom label entry handler
@@ -188,12 +187,26 @@ class ImageAnnotator:
                 self.rectangles.append((rect_id, annotation))
                 self.annotations.append(annotation)
                 self.update_annotation_text()
+                self.undo_stack.append(('add', rect_id, annotation))  # Push to undo stack
                 label_frame.destroy()  # Hide the label options after selection
 
         # Bind events
         dropdown.bind("<<ComboboxSelected>>", on_select)
         custom_label_entry.bind("<Return>", on_custom_label_entry)  # Allow custom label on "Enter"
 
+    def undo(self, event=None):
+        """Undo the last annotation action."""
+        if not self.undo_stack:
+            return  # No actions to undo
+
+        last_action, rect_id, annotation = self.undo_stack.pop()
+
+        if last_action == 'add':
+            # Undo the addition of a rectangle
+            self.canvas.delete(rect_id)
+            self.rectangles = [(r_id, ann) for r_id, ann in self.rectangles if r_id != rect_id]
+            self.annotations = [ann for ann in self.annotations if ann != annotation]
+            self.update_annotation_text()
 
     def select_rectangle(self, rect_id, annotation):
         """Highlight selected rectangle and show/edit its label."""
@@ -382,8 +395,20 @@ class ImageAnnotator:
             # Clear the selected rectangle
             self.selected_rectangle = None
 
+    def open_sign_detect(self):
+        """Invoke SignDetect functionality."""
+        try:
+            # Provide the necessary file paths for SignDetect
+            sign_detector = SignDetect(
+                lookup_file="dictionary/lookup_dict.json",  # Update with your actual paths
+                radical_file="dictionary/na_radical_counts.json",
+                custom_font="Assurbanipal"
+            )
+            sign_detector.search_signs()  # Launch the SignDetect pop-up
+        except Exception as e:
+            messagebox.showerror("Error", f"An error occurred: {e}")
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = ImageAnnotator(root, csv_file="sign_lists\cuneiform_table_1.csv")  # Specify your CSV file path
+    app = ImageAnnotator(root, json_file="sign_lists/cuneiform_table_1.json")  # Specify your JSON file path
     root.mainloop()
