@@ -401,8 +401,8 @@ class ImageAnnotator:
             # Provide the necessary file paths for SignDetect
             sign_detector = SignDetect(
                 lookup_file="dictionary/lookup_dict.json",  # Update with your actual paths
-                radical_file="dictionary/na_radical_counts.json",
-                custom_font="Assurbanipal"
+                radical_file="dictionary/nb_radical_counts.json",
+                custom_font="Esagil"
             )
             sign_detector.search_signs()  # Launch the SignDetect pop-up
         except Exception as e:

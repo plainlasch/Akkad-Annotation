@@ -55,7 +55,7 @@ class SignDetect:
 
         entries = {}
         for i, radical in enumerate(["𒀸", "𒀹", "𒀺", "𒁹", "𒌋"]):
-            Label(dialog, text=f"{radical}:", font=self.custom_font).grid(row=i, column=0, padx=10, pady=5)
+            Label(dialog, text=f"{radical}:", font="Assurbanipal").grid(row=i, column=0, padx=10, pady=5)
             entry = Entry(dialog)
             entry.grid(row=i, column=1, padx=10, pady=5)
             entries[radical] = entry
