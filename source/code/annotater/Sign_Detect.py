@@ -1,24 +1,76 @@
-from tkinter import Tk, Toplevel, Label, Entry, Button, messagebox, Listbox
+from tkinter import Tk, Toplevel, Label, Entry, Button, messagebox, Listbox, StringVar, OptionMenu
 from tkinter import font as tkfont  # For handling custom fonts
 import json
 import pyperclip
 
 class SignDetect:
     def __init__(self, lookup_file, radical_file, custom_font):
-        # Load JSON files
+        # Load the lookup dictionary
         with open(lookup_file, "r", encoding="utf-8") as file:
             self.lookup_dict = json.load(file)
 
-        with open(radical_file, "r", encoding="utf-8") as file:
-            self.radical_dict = json.load(file)
-
-        # Create a custom font using the font path
+        # Initialize attributes
+        self.radical_file = radical_file
         self.custom_font = custom_font
+        self.available_fonts = [
+            'Assurbanipal', 'Esagil', 'Persepolis', 
+            'Santakku', 'SantakkuM', 'UllikummiA'
+        ]
+
+        # Map fonts to their respective radical files
+        self.font_to_radical_file = {
+            'Assurbanipal': "dictionary/na_radical_counts.json",
+            'Esagil': "dictionary/nb_radical_counts.json",
+            'Santakku': "dictionary/ob_radical_counts.json",
+            'SantakkuM': "dictionary/obM_radical_counts.json",
+            'UllikummiA': "dictionary/hit_radical_counts.json"
+        }
+
+        # Load the default radical file
+        self.load_radical_file(self.radical_file)
+
+    def load_radical_file(self, radical_file):
+        """Load the radical file."""
+        try:
+            with open(radical_file, "r", encoding="utf-8") as file:
+                self.radical_dict = json.load(file)
+        except FileNotFoundError:
+            messagebox.showerror("File Error", f"Radical file {radical_file} not found.")
+            self.radical_dict = {}
+
+    def select_font(self, parent):
+        """Create a dropdown menu for selecting the custom font and update the radical file."""
+        def apply_font():
+            selected_font = font_var.get()
+            self.custom_font = selected_font
+            # Update the radical file based on the selected font
+            if selected_font in self.font_to_radical_file:
+                self.radical_file = self.font_to_radical_file[selected_font]
+                self.load_radical_file(self.radical_file)
+            font_window.destroy()
+
+        font_window = Toplevel(parent)
+        font_window.title("Select Font")
+
+        font_var = StringVar(font_window)
+        font_var.set(self.custom_font)  # Default font
+
+        Label(font_window, text="Select a font:", font=("Helvetica", 12)).pack(pady=10)
+        font_menu = OptionMenu(font_window, font_var, *self.available_fonts)
+        font_menu.pack(pady=10)
+
+        apply_button = Button(font_window, text="Apply", command=apply_font)
+        apply_button.pack(pady=10)
+
+        font_window.wait_window()
 
     def search_signs(self):
         """Prompt user for radicals in a structured input window."""
         root = Tk()
         root.withdraw()  # Hide the main Tkinter window
+
+        # Add font selection
+        self.select_font(root)
 
         radical_counts = self.get_radical_counts(root)
         if radical_counts is None:

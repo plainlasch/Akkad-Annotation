@@ -5,7 +5,7 @@ import json
 import os
 
 # Input file and output file
-LOOKUP_DICT_FILE = "dictionary/lookup_dict.json"
+LOOKUP_DICT_FILE = "dictionary/single_signs.json"
 RADICAL_COUNTS_FILE = "dictionary/hit_radical_counts.json"
 
 # Load the lookup dictionary
